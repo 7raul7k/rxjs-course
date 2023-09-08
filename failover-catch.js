@@ -67,6 +67,13 @@ function getDataFromAnotherService(){
         {name: "Asahi", country: "Japan", price: 7.50}
     ];
 
+    return Observable.create(observer => {
+        beers.forEach(beer => {
+            observer.next(beer);
+            emulateDelayInSeconds(1);
+        });
+        observer.complete();
+    });
     
 
 }
